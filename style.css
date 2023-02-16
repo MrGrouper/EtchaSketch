@@ -1,0 +1,11 @@
+
+.grid {
+display: grid;
+width: 500px;
+height: 500px;
+border: solid 1px;
+}
+
+.cell{
+    user-select: none;
+}
