@@ -1,11 +1,152 @@
-
-.grid {
-display: grid;
-width: 500px;
-height: 500px;
-border: solid 1px;
+:root {
+  --primary-light: #ddd;
+  --primary-dark: #222831;
+  --primary-grid: rgb(218, 210, 210);
+  --primary-red: rgb(183, 1, 1);
 }
 
-.cell{
-    user-select: none;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--primary-dark);
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.game_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+.grid {
+
+  display: grid;
+  width: 650px;
+  height: 450px;
+  border: none 2px;
+  border-radius: 5px;
+  background-color: var(--primary-grid);
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.cell {
+    background-color: rgba(0, 0, 0, 0);
+    
+}
+
+.screen {
+    position: absolute;
+  width: 650px;
+  height: 450px;
+  border: none 1px;
+  border-radius: 5px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top:78px;
+  box-shadow: 0px 1px 0 rgba(255,255,255,0.08), 1px 0px 0 rgba(255,255,255,0.08), 1px 2px 0 rgba(255,255,255,0.08), 2px 1px 0 rgba(255,255,255,0.08), 2px 3px 0 rgba(255,255,255,0.08), 3px 2px 0 rgba(255,255,255,0.08), 3px 4px 0 rgba(255,255,255,0.08), 4px 3px 0 rgba(255,255,255,0.08), 4px 5px 0 rgba(255,255,255,0.08), 5px 4px 0 rgba(255,255,255,0.08), -0px -1px 0 rgba(0,0,0,0.05), -1px -0px 0 rgba(0,0,0,0.05), -1px -2px 0 rgba(0,0,0,0.05), -2px -1px 0 rgba(0,0,0,0.05), -2px -3px 0 rgba(0,0,0,0.05), -3px -2px 0 rgba(0,0,0,0.05), -3px -4px 0 rgba(0,0,0,0.05), -4px -3px 0 rgba(0,0,0,0.05), -4px -5px 0 rgba(0,0,0,0.05), -5px -4px 0 rgba(0,0,0,0.05);
+    z-index: 1;
+}
+
+
+.red-plastic {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  background-color: rgb(183, 1, 1);
+  width: 850px;
+  height: 650px;
+  border-radius: 20px;
+  border: solid 1px;
+  box-shadow:  0px 1px 0 rgba(255,255,255,0.05) inset, 1px 0px 0 rgba(255,255,255,0.05) inset, 1px 2px 0 rgba(255,255,255,0.05) inset, 2px 1px 0 rgba(255,255,255,0.05) inset, 2px 3px 0 rgba(255,255,255,0.05) inset, 3px 2px 0 rgba(255,255,255,0.05) inset, 3px 4px 0 rgba(255,255,255,0.05) inset, 4px 3px 0 rgba(255,255,255,0.05) inset, 4px 5px 0 rgba(255,255,255,0.05) inset, 5px 4px 0 rgba(255,255,255,0.05) inset, 5px 6px 0 rgba(255,255,255,0.05) inset, 6px 5px 0 rgba(255,255,255,0.05) inset, 6px 7px 0 rgba(255,255,255,0.05) inset, 7px 6px 0 rgba(255,255,255,0.05) inset, 7px 9px 0 rgba(255,255,255,0.05) inset, 8px 7px 0 rgba(255,255,255,0.05) inset, 8px 9px 0 rgba(255,255,255,0.05) inset, 9px 8px 0 rgba(255,255,255,0.05) inset, -0px -1px 0 rgba(0,0,0,0.05) inset, -1px -0px 0 rgba(0,0,0,0.05) inset, -1px -2px 0 rgba(0,0,0,0.05) inset, -2px -1px 0 rgba(0,0,0,0.05) inset, -2px -3px 0 rgba(0,0,0,0.05) inset, -3px -2px 0 rgba(0,0,0,0.05) inset, -3px -4px 0 rgba(0,0,0,0.05) inset, -4px -3px 0 rgba(0,0,0,0.05) inset, -4px -5px 0 rgba(0,0,0,0.05) inset, -5px -4px 0 rgba(0,0,0,0.05) inset, -5px -6px 0 rgba(0,0,0,0.05) inset, -6px -5px 0 rgba(0,0,0,0.05) inset, -6px -7px 0 rgba(0,0,0,0.05) inset, -7px -6px 0 rgba(0,0,0,0.05) inset, -7px -9px 0 rgba(0,0,0,0.05) inset, -8px -7px 0 rgba(0,0,0,0.05) inset, -8px -9px 0 rgba(0,0,0,0.05) inset, -9px -8px 0 rgba(0,0,0,0.05) inset, 0 0 3px rgba(0,0,0,0.3), 2px 2px 3px rgba(0,0,0,0.3)
+}
+
+.knob-container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.knob {
+  width: 90px;
+  height: 90px;
+  background-color: white;
+  border-radius: 50%;
+  border: solid 1px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.text {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 30px;
+  color: goldenrod;
+  font-family: Brush Script MT;
+}
+
+.button_container {
+    padding-top: 50px;
+}
+
+#erase_btn {
+    font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, “Roboto”, “Oxygen”,
+    “Ubuntu”, “Cantarell”, “Fira Sans”, “Droid Sans”, “Helvetica Neue”,
+    sans-serif;
+    background-color: transparent;
+    color: var(--primary-light);
+    font-size: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  color: var(--primary-light);
+  font-size: 10px;
+  background-color: rgba(24, 24, 37, 0.324);
+  font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, “Roboto”, “Oxygen”,
+    “Ubuntu”, “Cantarell”, “Fira Sans”, “Droid Sans”, “Helvetica Neue”,
+    sans-serif;
+}
+
+.shake {
+    animation-name: shake;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+}
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-50px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(50px);
+    }
 }

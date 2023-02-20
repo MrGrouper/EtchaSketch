@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EtchaSketch</title>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="./style.css" />
-</head>
-<body>
-    <div id="grid" class = "grid">
-    
+  </head>
+  <body>
+    <div class="game_container">
+      <div id="red-plastic" class="red-plastic">
+        <div id="text" class="text">EtchASketch</div>
+        <div id="grid" class="grid"></div>
+        <div class = "screen"></div>
+        <div class="knob-container">
+          <div id="left-knob" class="knob"></div>
+          <div id="right-knob" class="knob"></div>
+        </div>
+      </div>
+      <div class = "button_container">
+          <button id = "erase_btn">Shake</button>
+      </div>
     </div>
-</body>
+    <div class = "footer"> 
+        <p>© NickUsaha</p>
+      </div>
+  </body>
 </html>
